@@ -6,6 +6,8 @@
 <apex:page>
 <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
     <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+    <script src="//geodata.solutions/includes/countrystatecity.js"></script>
     <script>
      function timestamp() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") {var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); } } setInterval(timestamp, 500); 
     </script>
@@ -43,7 +45,17 @@
     Gender:<select  id="00N0i000000mDBI" name="00N0i000000mDBI" title="Gender"><option value="">--None--</option><option value="Male">Male</option>
     <option value="Female">Female</option>
     </select><br>
-
+ 
+    <label for="country_code">Country</label><select name="country_code" class="countries order-alpha presel-byip " id="country_code">
+    <option value="">Select Country</option>
+    </select>
+    <label for="state_code">State/Province</label><select name="state_code" class="states order-alpha" id="state_code">
+        <option value="">Select State</option>
+    </select>
+     <label for="city">City</label><select name="city" class="cities order-alpha" id="City">
+        <option value="">Select City</option>
+    </select>  
+        
     <label for="street">Street</label><textarea name="street"></textarea><br>
 
     <label for="zip">Zip</label><input  id="zip" maxlength="20" name="zip" size="20" type="text" /><br>
