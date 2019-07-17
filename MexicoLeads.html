@@ -19,6 +19,13 @@
     document.getElementById("submitBtn").disabled = false;
     }
     </script>
+    <style>
+    .center {
+      padding: 70px 0;
+      border: 3px solid green;
+      text-align: center;
+    }
+    </style>
     <!--  ----------------------------------------------------------------------  -->
     <!--  NOTE: Please add the following <FORM> element to your page.             -->
     <!--  ----------------------------------------------------------------------  -->
@@ -705,9 +712,9 @@
 
     <label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
 
-
+    <div class="center">
     <div style="text-align:center;" class="g-recaptcha" data-sitekey="6Ld3xK0UAAAAAC01MRtcntKHvwWUHiGHTThlhxWL" data-callback="recaptcha_callback"></div><br>
     <input type="submit" name="submit" id="submitBtn" disabled="true" class="button"/>
-    
+    </div>
     </form>
     </apex:page>
