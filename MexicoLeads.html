@@ -45,19 +45,34 @@
     <!--  ----------------------------------------------------------------------  -->
     
     
-    Id number:<input  id="00N0i000000ldNV" maxlength="255" name="00N0i000000ldNV" size="20" type="text" /><br>
+    Cédula:<input  id="00N0i000000ldNV" maxlength="255" name="00N0i000000ldNV" size="20" type="text" /><br>
+        
+    Médico Tratante:<input  id="00N0i000000mIzQ" maxlength="255" name="00N0i000000mIzQ" size="20" type="text" /><br>
 
-    <label for="first_name">First Name</label><input  id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br>
-
-    <label for="last_name">Last Name</label><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br>
-
-    Date of Birth:<span class="dateInput dateOnlyInput"><input  id="00N0i000000ldNa" name="00N0i000000ldNa" size="12" type="text" /></span><br>
-
-    Gender:<select  id="00N0i000000mDBI" name="00N0i000000mDBI" title="Gender"><option value="">--None--</option><option value="Male">Male</option>
-    <option value="Female">Female</option>
+    Programa:<select  id="00N0i000000mJGR" name="00N0i000000mJGR" title="Engagement Program">
+    <option value="Biotecnología con Corazón">Biotecnología con Corazón</option>
+    <option value="Prolia">Prolia</option>
+    <option value="Amgen me Acompaña">Amgen me Acompaña</option>
+    <option value="Soporte Amgen">Soporte Amgen</option>
+    <option value="Blindando Vida">Blindando Vida</option>
+    <option value="Protegiendo Vida">Protegiendo Vida</option>
+    <option value="Tips NTIP">Tips NTIP</option>
+    <option value="ER Control: Aranesp">ER Control: Aranesp</option>
+    <option value="ER Control: Mimpara">ER Control: Mimpara</option>
     </select><br>
     
-    <label for="country_code">Country</label><select  id="country_code" name="country_code"><option value="">--None--</option><option value="AF">Afghanistan</option>
+
+    <label for="first_name">Nombre(s)</label><input  id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br>
+
+    <label for="last_name">Apellido(s)</label><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br>
+
+    Fecha de Nacimiento:<span class="dateInput dateOnlyInput"><input  id="00N0i000000ldNa" name="00N0i000000ldNa" size="12" type="text" /></span><br>
+
+    Género:<select  id="00N0i000000mDBI" name="00N0i000000mDBI" title="Gender"><option value="">--None--</option><option value="Male">Hombre</option>
+    <option value="Female">Mujer</option>
+    </select><br>
+    
+    <label for="country_code">País</label><select  id="country_code" name="country_code"><option value="">--Ninguno--</option><option value="AF">Afghanistan</option>
     <option value="AX">Aland Islands</option>
     <option value="AL">Albania</option>
     <option value="DZ">Algeria</option>
@@ -196,7 +211,7 @@
     <option value="MR">Mauritania</option>
     <option value="MU">Mauritius</option>
     <option value="YT">Mayotte</option>
-    <option value="MX">México</option>
+    <option value="MX">Mexico</option>
     <option value="MD">Moldova, Republic of</option>
     <option value="MC">Monaco</option>
     <option value="MN">Mongolia</option>
@@ -297,10 +312,8 @@
     <option value="ZM">Zambia</option>
     <option value="ZW">Zimbabwe</option>
     </select><br>
-    
-    <label for="state_code">State/Province</label><select  id="state_code" name="state_code">
-    <option value="">--None--</option>
-    <option value="AC">Acre</option>
+
+    <label for="state_code">Estado/Provincia</label><select  id="state_code" name="state_code"><option value="">--Ninguno--</option><option value="AC">Acre</option>
     <option value="AG">Agrigento</option>
     <option value="AG">Aguascalientes</option>
     <option value="AL">Alabama</option>
@@ -330,7 +343,7 @@
     <option value="ACT">Australian Capital Territory</option>
     <option value="AV">Avellino</option>
     <option value="BA">Bahia</option>
-    <option value="BC">Baja California Norte</option>
+    <option value="BC">Baja California</option>
     <option value="BS">Baja California Sur</option>
     <option value="BA">Bari</option>
     <option value="BT">Barletta-Andria-Trani</option>
@@ -377,7 +390,6 @@
     <option value="50">Chongqing</option>
     <option value="CH">Chubut</option>
     <option value="CDBA">Ciudad de Buenos Aires</option>
-    <option value="DF">Ciudad de México</option>
     <option value="CE">Clare</option>
     <option value="CO">Coahuila</option>
     <option value="CL">Colima</option>
@@ -405,7 +417,7 @@
     <option value="EN">Enna</option>
     <option value="ER">Entre Ríos</option>
     <option value="ES">Espírito Santo</option>
-    <option value="ME">Estado de México</option>
+    <option value="DF">Federal District</option>
     <option value="FM">Fermo</option>
     <option value="FE">Ferrara</option>
     <option value="FI">Florence</option>
@@ -505,6 +517,7 @@
     <option value="ME">Mendoza</option>
     <option value="ME">Messina</option>
     <option value="META">META</option>
+    <option value="ME">Mexico State</option>
     <option value="MI">Michigan</option>
     <option value="MI">Michoacán</option>
     <option value="MI">Milan</option>
@@ -694,24 +707,25 @@
     <option value="ZA">Zacatecas</option>
     <option value="33">Zhejiang</option>
     </select><br>
+
     
-    <label for="city">City</label><input  id="city" maxlength="40" name="city" size="20" type="text" /><br>    
+    <label for="city">Ciudad</label><input  id="city" maxlength="40" name="city" size="20" type="text" /><br>    
      
-    <label for="street">Street</label><textarea name="street"></textarea><br>
+    <label for="street">Dirección</label><textarea name="street"></textarea><br>
 
-    <label for="zip">Zip</label><input  id="zip" maxlength="20" name="zip" size="20" type="text" /><br>
+    <label for="zip">Código Postal</label><input  id="zip" maxlength="20" name="zip" size="20" type="text" /><br>
 
-    Preferred Communication Channel:<select  id="00N0i000000mDQ8" name="00N0i000000mDQ8" title="Preferred Communication Channel"><option value="">--None--</option><option value="--None--">--None--</option>
-    <option value="Phone">Phone</option>
-    <option value="Email">Email</option>
-    <option value="SMS">SMS</option>
+    ¿Por que medio le gustaria ser contactado?:<select  id="00N0i000000mDQ8" name="00N0i000000mDQ8" title="Preferred Communication Channel"><option value="">--None--</option><option value="--None--">--None--</option>
+    <option value="Phone">Teléfono</option>
+    <option value="Email">Correo Electronico</option>
+    <option value="SMS">Mensaje de Texto</option>
     </select><br>
 
-    <label for="phone">Phone</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
+    <label for="phone">Teléfono Fijo</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
 
-    <label for="mobile">Mobile</label><input  id="mobile" maxlength="40" name="mobile" size="20" type="text" /><br>
+    <label for="mobile">Teléfono Celular</label><input  id="mobile" maxlength="40" name="mobile" size="20" type="text" /><br>
 
-    <label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
+    <label for="email">Correo Electrónico</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
 
     <div class="center">
     <div style="text-align:center;" class="g-recaptcha" data-sitekey="6Ld3xK0UAAAAAC01MRtcntKHvwWUHiGHTThlhxWL" data-callback="recaptcha_callback"></div><br>
