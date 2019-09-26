@@ -18,6 +18,10 @@
     function recaptcha_callback(){
     document.getElementById("submitBtn").disabled = false;
     }
+    function dateToString(){
+        var dob=document.getElementById("birthDate");
+        document.getElementById("00N0i000000ldNa").value = dob.toString();
+    }
     </script>
     <style>
     .center {
@@ -66,8 +70,8 @@
     <label for="first_name">Nombre(s)</label><input  id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br>
 
     <label for="last_name">Apellido(s)</label><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br>
-
-    Fecha de Nacimiento:<span class="dateInput dateOnlyInput"><input  id="00N0i000000ldNa" name="00N0i000000ldNa" size="12" type="Text" /></span><br>
+    Fecha de Nacimiento:<span class="dateInput dateOnlyInput"><input  id="birthDate" name="00N0i000000ldNa" size="12" type=hidden /></span><br>
+    Fecha de Nacimiento:<span class="dateInput dateOnlyInput"><input  id="00N0i000000ldNa" name="00N0i000000ldNa" size="12" type=hidden /></span>
 
     Género:<select  id="00N0i000000mDBI" name="00N0i000000mDBI" title="Gender"><option value="">--Ninguno--</option><option value="Male">Hombre</option>
     <option value="Female">Mujer</option>
@@ -729,7 +733,7 @@
     <label for="email">Correo Electrónico</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
 
     <div class="center">
-    <div style="text-align:center;" class="g-recaptcha" data-sitekey="6Ld3xK0UAAAAAC01MRtcntKHvwWUHiGHTThlhxWL" data-callback="recaptcha_callback"></div><br>
+    <div style="text-align:center;" class="g-recaptcha" data-sitekey="6Ld3xK0UAAAAAC01MRtcntKHvwWUHiGHTThlhxWL" data-callback="recaptcha_callback" data-callback="dateToString"></div><br>
     <input type="submit" name="submit" id="submitBtn" disabled="true" class="button"/>
     </div>
     </form>
