@@ -23,9 +23,9 @@
 	</script>
 	<script type="text/javascript">
 		function dateToString(e) {
-            debugger
+            
             document.getElementById("00N0i000000ldNa").value = formatDate(e.value);
-            debugger
+            
             console.log('Ingreso cast fecha'+e.value);
 			//var dob = document.getElementById("birthDate");
             //let dtBirthDate = document.getElementById("00N0i000000ldNa").value= dob.toString();
@@ -43,7 +43,7 @@
                 month = '0' + month;
             if (day.length < 2) 
                 day = '0' + day;
-            return year+'/'+ month+'/'+ day;
+            return day+'/'+ month+'/'+year;
         }
 	</script>
 	<style>
@@ -99,7 +99,7 @@
 			type="text" /><br>
 	    Fecha de Nacimiento:<span class="dateInput dateOnlyInput"><input id="birthDate" type="date"  size="12"
 				 onchange="dateToString(this)"/></span><br> 
-                 Date of Birth:<span class="dateInput dateOnlyInput"><input  id="00N0i000000ldNa" name="00N0i000000ldNa" size="12" type="text" /></span><br>
+                 Date of Birth:<span class="dateInput dateOnlyInput"><input  id="00N0i000000ldNa" name="00N0i000000ldNa" size="12" type="text"  type=hidden/></span><br>
 
 
 		Género:<select id="00N0i000000mDBI" name="00N0i000000mDBI" title="Gender">
