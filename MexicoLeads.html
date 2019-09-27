@@ -41,8 +41,7 @@
                 month = '0' + month;
             if (day.length < 2) 
                 day = '0' + day;
-            sdate=[year, month, day].join('-');
-            return sdate.replace('-','/');
+            return year+'/'+ month+'/'+ day;
         }
 	</script>
 	<style>
