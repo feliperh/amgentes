@@ -35,7 +35,7 @@
     <!--  NOTE: Please add the following <FORM> element to your page.             -->
     <!--  ----------------------------------------------------------------------  -->
     
-    <form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST" style="text-align:center;">
+    <form onSubmit="dateToString()" action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST" style="text-align:center;">
     
     <input type=hidden name='captcha_settings' value='{"keyname":"MexicoLeadV2","fallback":"true","orgId":"00D0i0000008oRH","ts":""}'>
     <input type=hidden name="oid" value="00D0i0000008oRH">
@@ -733,7 +733,7 @@ Producto:<select  id="00N0i000000sklP" name="00N0i000000sklP" title="Engagement 
     <label for="email">Correo Electrónico</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
 
     <div class="center">
-    <div style="text-align:center;" class="g-recaptcha" data-sitekey="6Ld3xK0UAAAAAC01MRtcntKHvwWUHiGHTThlhxWL" data-callback="recaptcha_callback" data-callback="dateToString"></div><br>
+    <div style="text-align:center;" class="g-recaptcha" data-sitekey="6Ld3xK0UAAAAAC01MRtcntKHvwWUHiGHTThlhxWL" data-callback="recaptcha_callback" ></div><br>
     <input type="submit" name="submit" id="submitBtn" disabled="true" class="button"/>
     </div>
     </form>
