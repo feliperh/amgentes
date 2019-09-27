@@ -24,8 +24,8 @@
 	<script type="text/javascript">
 		function dateToString(e) {
             debugger
-            e.value = formatDate(e.value);
-            console.log('Ingreso cast fecha'+formatDate(e.value));
+            e.value = '2019/10/12';
+            console.log('Ingreso cast fecha'+e.value);
 			//var dob = document.getElementById("birthDate");
             //let dtBirthDate = document.getElementById("00N0i000000ldNa").value= dob.toString();
             //console.log(typeof dtBirthDate === String);
@@ -42,7 +42,7 @@
                 month = '0' + month;
             if (day.length < 2) 
                 day = '0' + day;
-            return year+'/'+ month+'/'+ day;
+            return new Date(year+'/'+ month+'/'+ day);
         }
 	</script>
 	<style>
