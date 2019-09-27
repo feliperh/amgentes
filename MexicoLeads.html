@@ -20,7 +20,7 @@
     }
     function dateToString(){
         var dob=document.getElementById("birthDate");
-        document.getElementById("00N0i000000ldNa").value = dob.toString();
+        document.getElementById("00N0i000000ldNa").value = dob.toString().replace("-","/");
     }
     </script>
     <style>
@@ -54,8 +54,6 @@
     Médico Tratante:<input  id="00N0i000000mIzQ" maxlength="255" name="00N0i000000mIzQ" size="20" type="text" /><br>
         
 Producto:<select  id="00N0i000000sklP" name="00N0i000000sklP" title="Engagement Program Product">
-	   
-<option value="">--Ninguno--</option>
 <option value="Repatha">Repatha</option>	    
 <option value="Prolia">Prolia</option><option value="Vectibix">Vectibix</option>
 <option value="Xgeva">Xgeva</option>
@@ -77,7 +75,7 @@ Producto:<select  id="00N0i000000sklP" name="00N0i000000sklP" title="Engagement 
     <option value="Female">Mujer</option>
     </select><br>
     
-    <label for="country_code">País *</label><br><select  id="country_code" name="country_code" class="form-control" required><option value="">--Ninguno--</option>
+    <label for="country_code">País *</label><br><select  id="country_code" name="country_code" required>
 							<!-- <option value="AF">Afghanistan</option>
 							<option value="AX">Aland Islands</option>
 							<option value="AL">Albania</option>
