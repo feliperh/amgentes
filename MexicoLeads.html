@@ -20,7 +20,8 @@
     }
     function dateToString(){
         var dob=document.getElementById("birthDate");
-        document.getElementById("00N0i000000ldNa").value = dob.toString().replace("-","/");
+        var str = dob.toString();
+	document.getElementById("00N0i000000ldNa").value = str.replace("-","/");   
     }
     </script>
     <style>
@@ -35,7 +36,7 @@
     <!--  NOTE: Please add the following <FORM> element to your page.             -->
     <!--  ----------------------------------------------------------------------  -->
     
-    <form onSubmit="dateToString()" action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST" style="text-align:center;">
+    <form onSubmit="dateToString" action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST" style="text-align:center;">
     
     <input type=hidden name='captcha_settings' value='{"keyname":"MexicoLeadV2","fallback":"true","orgId":"00D0i0000008oRH","ts":""}'>
     <input type=hidden name="oid" value="00D0i0000008oRH">
@@ -734,7 +735,7 @@ Producto:<select  id="00N0i000000sklP" name="00N0i000000sklP" title="Engagement 
 
     <div class="center">
     <div style="text-align:center;" class="g-recaptcha" data-sitekey="6Ld3xK0UAAAAAC01MRtcntKHvwWUHiGHTThlhxWL" data-callback="recaptcha_callback" ></div><br>
-    <input type="submit" name="submit" id="submitBtn" disabled="true" class="button"/>
+    <input type="submit" name="submit" id="submitBtn" disabled="true" class="button" data-callback="dateToString"/>
     </div>
     </form>
     </apex:page>
