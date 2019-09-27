@@ -23,12 +23,27 @@
 	</script>
 	<script type="text/javascript">
 		function dateToString(e) {
-            console.log('Ingreso cast fecha'+e.value);
-			var dob = document.getElementById("birthDate");
-            let dtBirthDate = document.getElementById("00N0i000000ldNa").value= dob.toString();
-            console.log(typeof dtBirthDate === String);
+            e.value = formatDate(e.value);
+            console.log('Ingreso cast fecha'+formatDate(e.value));
+			//var dob = document.getElementById("birthDate");
+            //let dtBirthDate = document.getElementById("00N0i000000ldNa").value= dob.toString();
+            //console.log(typeof dtBirthDate === String);
         
-		}
+        }
+        
+        function formatDate(date) {
+            var d = new Date(date),
+                month = '' + (d.getMonth() + 1),
+                day = '' + d.getDate(),
+                year = d.getFullYear();
+        
+            if (month.length < 2) 
+                month = '0' + month;
+            if (day.length < 2) 
+                day = '0' + day;
+        
+            return [year, month, day].join('-');
+        }
 	</script>
 	<style>
 		.center {
