@@ -1,99 +1,76 @@
-<!--  ----------------------------------------------------------------------  -->
-<!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
-<!--  If necessary, please modify the charset parameter to specify the        -->
-<!--  character set of your HTML page.                                        -->
-<!--  ----------------------------------------------------------------------  -->
 <apex:page>
-	<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
-	<script src="https://www.google.com/recaptcha/api.js"></script>
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-		crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-		crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-		crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+    
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	
+			<script src="https://www.google.com/recaptcha/api.js"></script>
 
-	<script>
-        function recaptcha_callback(){
-            document.getElementById("submitBtn").disabled = false;
-            }
-        function timestamp() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") { var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value); elems["ts"] = JSON.stringify(new Date().getTime()); document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); } } setInterval(timestamp, 500); 
-	</script>
-	<script type="text/javascript">
-		function dateToString(e) {
-            
-            document.getElementById("00N0i000000ldNa").value = formatDate(e.value);
-            
-            console.log('Ingreso cast fecha'+e.value);
-			//var dob = document.getElementById("birthDate");
-            //let dtBirthDate = document.getElementById("00N0i000000ldNa").value= dob.toString();
-            //console.log(typeof dtBirthDate === String);
-        
-        }
-        
-        function formatDate(date) {
-            var d = new Date(date),
-                month = '' + (d.getMonth() + 1),
-                day = '' + d.getDate(),
-                year = d.getFullYear();
-        
-            if (month.length < 2) 
-                month = '0' + month;
-            if (day.length < 2) 
-                day = '0' + day;
-            return day+'/'+ month+'/'+year;
-        }
-	</script>
-	<style>
-		.center {
-			text-align: center;
-		}
+			<script>
+				function recaptcha_callback(){
+					document.getElementById("submitBtn").disabled = false;
+					}
+				
+				function timestamp() {
+					var response = document.getElementById("g-recaptcha-response");
+					if (response == null || response.value.trim() == "") {
+						var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);
+						elems["ts"] = JSON.stringify(new Date().getTime());
+						document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems);
+					}
+				}
+				setInterval(timestamp, 500);
+			</script>
+			<script type="text/javascript">
+				function dateToString(e) {
+					
+					document.getElementById("00N0i000000ldNa").value = formatDate(e.value);
+					
+					console.log('Ingreso cast fecha '+ e.value);
+					//var dob = document.getElementById("birthDate");
+					//let dtBirthDate = document.getElementById("00N0i000000ldNa").value= dob.toString();
+					//console.log(typeof dtBirthDate === String);
+				
+				}
+				
+				function formatDate(date) {
+					var d = new Date(date),
+						month = '' + (d.getMonth() + 1),
+						day = '' + d.getDate(),
+						year = d.getFullYear();
+				
+					if (month.length < 2) 
+						month = '0' + month;
+					if (day.length < 2) 
+						day = '0' + day;
+					return day + '/' + month + '/' + year;
+				}
+			</script>
 
-		.g-recaptcha {
-			display: inline-block;
-		}
-	</style>
-	<!--  ----------------------------------------------------------------------  -->
-	<!--  NOTE: Please add the following <FORM> element to your page.             -->
-	<!--  ----------------------------------------------------------------------  -->
-
-	<form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST"
-		style="text-align:center;">
-
-		<input type=hidden name='captcha_settings' value='{"keyname":"AmgenMexicoTest","fallback":"true","orgId":"00D46000000ahY2","ts":""}'>
+            <style> 
+				.center {
+				text-align: center;
+				}
+				.g-recaptcha {
+					display: inline-block;
+				}
+            </style>
+            <form onsubmit="alert('Formulario enviado');" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" 
+			method="POST" style="text-align:left;" >
+				<div class="row">
+					
+                <input type=hidden name='captcha_settings' value='{"keyname":"AmgenMexicoTest","fallback":"true","orgId":"00D46000000ahY2","ts":""}'>
 <input type=hidden name="oid" value="00D46000000ahY2">
-<input type=hidden name="retURL" value="http://">
-
-		<!--  ----------------------------------------------------------------------  -->
-		<!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
-		<!--  these lines if you wish to test in debug mode.                          -->
-		<input type="hidden" name="debug" value=1>
-		<input type="hidden" name="debugEmail" value="amgenavanxo@gmail.com">
-		<!--  ----------------------------------------------------------------------  -->
 
 
-		Cédula:<input id="00N0i000000ldNV" maxlength="255" name="00N0i000000ldNV" size="20" type="text" /><br>
+				<!--  ----------------------------------------------------------------------  -->
+				<!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+				<!--  these lines if you wish to test in debug mode.                          -->
+				<input type="hidden" name="debug" value=1>
+				<input type="hidden" name="debugEmail" value="amgenavanxo@gmail.com">
+				<!--  ----------------------------------------------------------------------  -->
 
-		Médico Tratante:<input id="00N0i000000mIzQ" maxlength="255" name="00N0i000000mIzQ" size="20" type="text" /><br>
-
-		Producto:<select id="00N0i000000sklP" name="00N0i000000sklP" title="Engagement Program Product">
-			<option value="Repatha">Repatha</option>
-			<option value="Prolia">Prolia</option>
-			<option value="Vectibix">Vectibix</option>
-			<option value="Xgeva">Xgeva</option>
-			<option value="Blincyto">Blincyto</option>
-			<option value="Kyprolis">Kyprolis</option>
-			<option value="Nplate">Nplate</option>
-			<option value="Aranesp">Aranesp</option>
-			<option value="Mimpara">Mimpara</option>
-		</select><br>
-
-<div class="col-12">
+					<div class="col-12">
 							<label for="exampleInputEmail1">Cédula del médico:</label> 
 							<input  id="00N0A000000VQfW" maxlength="255" name="00N0A000000VQfW" class="form-control" type="text" /><br>
 							</div>
@@ -199,8 +176,18 @@
 						</div>
 						<div class="col-12">
 							<label for="email">Correo electrónico</label><br><input  id="email" maxlength="80" name="email" class="form-control" type="email" /><br>
+						</div><p></p>
+						<div class="col-12">
+							<input  style="margin-right: 10px;" id="autorizo" name="autorizo" type="checkbox" required><label for="autorizo">Autorizo el uso de mis datos personales </label>
 						</div>
-			<div class="center">
+						
+						<div class="col-12 small danger" style="margin-top: 10px; margin-bottom: 10px; color: red;">*: Campos obligatorios</div>
+						<!-- <div class="center">
+							<div style="text-align: center;" class="g-recaptcha" data-sitekey="6Lf-LboUAAAAAJd_qVAOhHp3hSE0KsTrEBDy4JVv"></div><br>
+							
+						</div> -->
+
+						<div class="center">
 							<div style="text-align:center;" class="g-recaptcha" data-sitekey="6LdmfcAUAAAAAGS6GKIHJdDglNDxdnMyFnV_bs0S"
 								data-callback="recaptcha_callback" data-callback="dateToString"></div><br>
 							<!-- <input type="submit" name="submit" id="submitBtn" class="button" disabled="True" /> -->
@@ -209,5 +196,11 @@
 						<div class="col-12 mt-3">
 							<input type="submit" name="submit" id="submitBtn" class="button" disabled="True" />
 						</div>
-	</form>
-</apex:page>
+
+						<div class="col-12 mt-5">
+							<p class="small text-center">Consulta nuestro aviso de privacidad para la protección de datos personales en:  
+							<a href="http://www.signufarma.com.mx/aviso-de-privacidad/" target="_blank">http://www.signufarma.com.mx/aviso-de-privacidad/</a></p>
+						</div>
+				</div>
+			</form>
+		</apex:page>
