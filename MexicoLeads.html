@@ -1,173 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jsforce/1.9.1/jsforce.min.js"></script>
+  <script>
+jsforce.browser.init({
+  clientId: '3MVG9Nk1FpUrSQHd5edLBI.w7sT_kIYKWarkFMmIeUk4lO_NL2BCwJOV5DfoyN4am.jm.RuEfReTCiBi47BrY',
+  redirectUri: 'https://login.salesforce.com/'
+});
+jsforce.browser.on('connect', function(conn) {
+  conn.query('SELECT Id, Name FROM Account', function(err, res) {
+    if (err) { return console.error(err); }
+    console.log(res);
+  });
+});
+  </script>
 </head>
 <body>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-    <style type='text/css'>
-    .embeddedServiceHelpButton .helpButton .uiButton {
-        background-color: #005290;
-        font-family: "Arial", sans-serif;
-    }
-    .embeddedServiceHelpButton .helpButton .uiButton:focus {
-        outline: 1px solid #005290;
-    }
-</style>
-<style type='text/css'>
-    .embeddedServiceHelpButton .helpButton .uiButton {
-        background-color: #005290;
-        font-family: "Arial", sans-serif;
-    }
-    .embeddedServiceHelpButton .helpButton .uiButton:focus {
-        outline: 1px solid #005290;
-    }
-</style>
-<div class="btn-group">
-  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Action
-  </button>
-  <div class="dropdown-menu">
-    <a class="dropdown-item" href="#">Action</a>
-    <a class="dropdown-item" href="#">Another action</a>
-    <a class="dropdown-item" href="#">Something else here</a>
-    <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="#">Separated link</a>
-  </div>
-</div>
-<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
-<script type='text/javascript'>
-    var initESW = function(gslbBaseURL) {
-        embedded_svc.settings.displayHelpButton = true; //O falso
-        embedded_svc.settings.language = ''; //Por ejemplo, ingrese 'en' o 'en-US'
-
-        embedded_svc.settings.defaultMinimizedText = 'Chat Pequeñin'; //(Toma como valor predeterminado Sesión de chat con un experto)
-        //embedded_svc.settings.disabledMinimizedText = '...'; //(Toma como valor predeterminado Agente sin conexión)
-
-        //embedded_svc.settings.loadingText = ''; //(Toma como valor predeterminado Cargando)
-        //embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Establece el dominio para su desarrollo de modo que los visitantes puedan navegar por subdominios durante una sesión de chat)
-
-        // Configuración para Plática
-        //embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
-            // Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
-            // Returns a valid button ID.
-        //};
-        //embedded_svc.settings.prepopulatedPrechatFields = {}; //Establece el relleno automático de los campos del formulario previo al chat
-        //embedded_svc.settings.fallbackRouting = []; //Una matriz de identificadores de botones, de usuario o userId_buttonId
-        //embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Toma como valor predeterminado la opción Contacto)
-
-        embedded_svc.settings.enabledFeatures = ['LiveAgent'];
-        embedded_svc.settings.entryFeature = 'LiveAgent';
-embedded_svc.settings.extraPrechatFormDetails = [{
-            "label": "RecordTypeId",
-            "value": "012f0000000l9ZnAAI",
-            "displayToAgent": true
-        }];
-        embedded_svc.settings.extraPrechatInfo = [{
-            "entityName": "Contact",
-            "saveToTranscript": "ContactId",
-            "showOnCreate": true,
-            "entityFieldMaps": [{
-                "fieldName": "FirstName",
-                "isExactMatch" : false,
-                "doFind" : false,
-                "doCreate": true,
-                "label": "Name"
-            }, {
-                "fieldName": "LastName",
-                "isExactMatch" : false,
-                "doFind" : false,
-                "doCreate": true,
-                "label": "Apellidos"
-            }, {
-                "fieldName": "Email",
-                "isExactMatch" : false,
-                "doFind" : false,
-                "doCreate": true,
-                "label": "Email"
-            },{
-                "fieldName": "GRF_NumeroIdentificacion__c",
-                "isExactMatch" : false,
-                "doFind" : false,
-                "doCreate": true,
-                "label": "Número de Identificación"
-            }]
-        },
-        {
-            "entityName": "Account",
-            "showOnCreate": true,
-            "saveToTranscript": "AccountId",
-            "entityFieldMaps": [{
-                    "fieldName": "FirstName",
-                    "isExactMatch" : false,
-                    "doFind" : false,
-                    "doCreate": true,
-                    "label": "Nombre"
-                },
-                {
-                    "fieldName": "LastName",
-                    "isExactMatch" : false,
-                    "doFind" : false,
-                    "doCreate": true,
-                    "label": "Apellidos"
-                },
-                {
-                    "fieldName": "RecordTypeId",
-                    "isExactMatch" : false,
-                    "doFind" : false,
-                    "doCreate": true,
-                    "label": "RecordTypeId"
-                },
-                {
-                    "fieldName": "PersonEmail",
-                    "isExactMatch" : false,
-                    "doFind" : false,
-                    "doCreate": true,
-                    "label": "Email"
-                },
-                {
-                    "fieldName": "GRF_TipoIdentificacion__pc",
-                    "doCreate": true,
-                    "label": "Tipo de identificación"
-                },
-                {
-                    "fieldName": "GRF_NumeroIdentificacion__pc",
-                    "isExactMatch" : false,
-                    "doFind" : false,
-                    "doCreate": true,
-                    "label": "Número de Identificación"
-                }]
-        }]
-        embedded_svc.init(
-            'https://grupofamilia--gpofamdev.my.salesforce.com',
-            'https://gpofamdev-surveyfamilia.cs16.force.com/chatPequenin',
-            gslbBaseURL,
-            '00Df0000003f4DZ',
-            'GRF_B2CPequenin',
-            {
-                baseLiveAgentContentURL: 'https://c.la1-c1cs-ord.salesforceliveagent.com/content',
-                deploymentId: '572f0000000Cb3v',
-                buttonId: '573f0000000015n',
-                baseLiveAgentURL: 'https://d.la1-c1cs-ord.salesforceliveagent.com/chat',
-                eswLiveAgentDevName: 'GRF_B2CPequenin',
-                isOfflineSupportEnabled: false
-            }
-        );
-    };
-
-    if (!window.embedded_svc) {
-        var s = document.createElement('script');
-        s.setAttribute('src', 'https://grupofamilia--gpofamdev.my.salesforce.com/embeddedservice/5.0/esw.min.js');
-        s.onload = function() {
-            initESW(null);
-        };
-        document.body.appendChild(s);
-    } else {
-        initESW('https://service.force.com');
-    }
-</script>
+  <button onclick="javascript:jsforce.browser.login();">Login</button>
 </body>
 </html>
